@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { fetchBio } from '../api';
+import { fetchBio } from '../../api';
 
 export default function Page() {
   const [person, setPerson] = useState<string>('John');
