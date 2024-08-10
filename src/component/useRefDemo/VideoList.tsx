@@ -10,24 +10,33 @@ const videoList = [
 ]
 
 export default function VideoList() {
-    const videoRefList = useRef<HTMLVideoElement[]>([]);
+    const videosRef = useRef<HTMLVideoElement[]>([]);
 
     const handleRewind = (index: number) => {
-        if (!videoRefList.current) return;
-        videoRefList.current[index].currentTime -= 5;
+        if (!videosRef.current) return;
+        console.log(videosRef)
+        console.log(videosRef.current)
+        videosRef.current[index].currentTime -= 5;
 
     }
     const togglePlayVideo = (index: number) => {
-        if (!videoRefList.current) return;
-        if (videoRefList.current[index].paused) {
-            videoRefList.current[index].play();
+        if (!videosRef.current) return;
+        if (videosRef.current[index].paused) {
+            videosRef.current[index].play();
         } else {
-            videoRefList.current[index].pause();
+            videosRef.current[index].pause();
         }
     }
     const handleFastForward = (index: number) => {
-        if (!videoRefList.current) return;
-        videoRefList.current[index].currentTime += 5;
+        if (!videosRef.current) return;
+        videosRef.current[index].currentTime += 5;
+    }
+
+    const test = (index:number) => (ele: HTMLVideoElement | null) =>{
+        console.log(ele);
+        if (ele){
+            videosRef.current[index] = ele;
+        }
     }
 
     return (
@@ -37,7 +46,8 @@ export default function VideoList() {
                 videoList.map(({ videoUrl, id }, index) => (
                     <div key={id} style={{ display: "inline-block", margin: "5px" }}>
                         <video
-                            ref={(ele) => ele && (videoRefList.current[index] = ele)}
+                            // ref={(ele) => ele && (videoRefList.current[index] = ele)}
+                            ref={test(index)}
                             src={videoUrl}
                             width="350"
                             controls

@@ -9,6 +9,8 @@ export default function Video() {
 
     const handleRewind = () => {
         if (!videoRef.current) return;
+        console.log(videoRef)
+        console.log(videoRef.current)
         videoRef.current.currentTime -= 5;
 
     }
