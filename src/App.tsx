@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
-
+import UserInfo from './component/useContext & createContext/UserInfo'
 
 function App() {
 
   return (
     <>
+      <UserInfo />
     </>
   )
 }
