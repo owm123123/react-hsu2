@@ -1,10 +1,11 @@
-import UserInfo from './component/useContext & createContext/UserInfo'
+import Coffee from "./component/useReducer/Coffee"
+
 
 function App() {
 
   return (
     <>
-      <UserInfo />
+      <Coffee />
     </>
   )
 }
