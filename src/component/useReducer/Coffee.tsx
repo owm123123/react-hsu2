@@ -32,7 +32,7 @@ function reducer(state: State, action: Action) {
       return {
         ...state,
         coffee: state.coffee - amount,
-        revenue: state.revenue - amount * 80,
+        revenue: state.revenue + amount * 80,
       };
     case ActionType.MAKE_COFFEE:
       return {
