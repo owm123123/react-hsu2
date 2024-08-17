@@ -1,7 +1,4 @@
-// import Basic from "./component/useEffectDemo/Basic"
-
-import Issue from "./component/useEffect/Issue"
-import Basic2 from "./component/useLayoutEffect/Basic2"
+import Basic from "./component/customHook/Basic"
 
 
 
@@ -9,9 +6,7 @@ function App() {
 
   return (
     <>
-      <Issue />
-      {/* <Issue /> */}
-      {/* <Basic2 /> */}
+      <Basic />
     </>
   )
 }
