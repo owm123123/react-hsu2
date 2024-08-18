@@ -1,13 +1,17 @@
-import Basic from "./component/useLayoutEffect/Basic"
+// import Basic from "./component/useEffectDemo/Basic"
+
+import Issue from "./component/useEffect/Issue"
 import Basic2 from "./component/useLayoutEffect/Basic2"
-import Coffee from "./component/useReducer/Coffee"
+
 
 
 function App() {
 
   return (
     <>
-      <Basic2 />
+      <Issue />
+      {/* <Issue /> */}
+      {/* <Basic2 /> */}
     </>
   )
 }

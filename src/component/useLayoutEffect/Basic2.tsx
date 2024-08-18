@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useLayoutEffect, useRef, useState, useEffect } from 'react'
 
 export default function Basic2() {
     const [isShow, setIsShow] = useState<boolean>(false);
