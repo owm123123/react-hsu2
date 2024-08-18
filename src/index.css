@@ -9,3 +9,64 @@
     justify-content: center;
     margin: 10px;
 }
+
+/* 這是整個對話框的背景 */
+.dialog {
+    position: fixed;
+    /* 固定在視窗中 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 半透明的黑色背景 */
+    display: flex;
+    /* 使用 flexbox 來對齊內容 */
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+    z-index: 1000;
+    /* 確保對話框在其他內容之上 */
+}
+
+/* 這是對話框的內容區域 */
+.dialog > div {
+    background-color: #fff;
+    /* 背景顏色為白色 */
+    padding: 20px;
+    /* 內邊距 */
+    border-radius: 8px;
+    /* 邊角圓潤 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* 輕微的陰影效果 */
+    max-width: 500px;
+    /* 最大寬度 */
+    width: 100%;
+    /* 100% 寬度，限制在最大寬度 */
+}
+
+/* 設置關閉按鈕的樣式 */
+.dialog button {
+    margin-top: 10px;
+    /* 與上方內容的距離 */
+    padding: 10px 20px;
+    /* 按鈕的內邊距 */
+    border: none;
+    /* 去掉邊框 */
+    border-radius: 4px;
+    /* 邊角圓潤 */
+    background-color: #007bff;
+    /* 背景顏色 */
+    color: #fff;
+    /* 文字顏色 */
+    cursor: pointer;
+    /* 鼠標懸停時顯示為手型 */
+    font-size: 16px;
+    /* 字體大小 */
+}
+
+.dialog button:hover {
+    background-color: #0056b3;
+    /* 鼠標懸停時背景顏色變深 */
+}

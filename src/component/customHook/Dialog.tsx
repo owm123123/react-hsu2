@@ -6,7 +6,7 @@ export default function Dialog({ close }: { close: () => void }) {
     const ref = useClickOutside(close);
     console.log(ref)
     return (
-        <div>
+        <div className='dialog'>
             <div ref={ref}>
                 <h1>Hello</h1>
                 <button onClick={close}>Close</button>
