@@ -1,13 +1,15 @@
-import Basic from "./component/customHook/Basic"
+// import Basic from "./component/useCallBack/Basic"
+// import Basic from "./component/useMemo/Basic"
+
+import Router from "./component/router/Router"
 
 
 
 function App() {
-
   return (
-    <>
-      <Basic />
-    </>
+    <div>
+      <Router />
+    </div>
   )
 }
 
