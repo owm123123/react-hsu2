@@ -1,0 +1,105 @@
+ungrouped:
+  hosts:
+    localhost:
+      ansible_connection: local
+      ansible_python_interpreter: "{{ansible_playbook_python}}"
+#    meig1:
+#      ansible_host: 10.11.30.39
+#      ansible_user: root
+    meig2:
+      ansible_host: 10.11.30.40
+      ansible_user: root
+    meig3:
+      ansible_host: 10.11.30.41
+      ansible_user: meig
+  vars:
+    secret_configs:
+      1:
+        name: db1 yongjhen
+        host: localhost
+        type: oracle
+        client_home: /opt/instantclient_11_2
+        #cx_oracle_package: python3-cx-oracle
+        db_host: 10.11.30.31
+        db_port: 1521
+        service: XEPDB1
+        user: sys
+        passwd: 650c1ff1769c315e
+        schema: yongjhen
+      2:
+        name: db1 developer
+        host: localhost
+        type: oracle
+        client_home: /opt/instantclient_11_2
+        #cx_oracle_package: python3-cx-oracle
+        db_host: 10.11.30.31
+        db_port: 1521
+        service: XEPDB1
+        user: sys
+        passwd: 650c1ff1769c315e
+        schema: yongjhen
+    old_secrets:
+      1: hahaha
+      2: hahaha
+      #2: hehehe
+    new_secrets:
+      1: hohoho
+      2: hihihi
+    application_configs:
+      - id: 1
+        name: app1
+        host: meig2
+        control_config:
+          type: manual
+          wait_timeout: 86400
+        #status_config:
+        #  type: tcp
+        #  port: 8084
+        secret_configs:
+          - secret_id: 1
+            update_config:
+              type: xml
+              path: /tmp/test.xml
+              xpath: //password
+              #attribute: password
+            #transform_config:
+            #  type: plain
+            #check_config:
+            #  type: http
+#          - secret_id: 2
+#            update_config:
+#              type: xml
+#            #transform_config:
+#            #  type: aes
+#            #  command: "echo ${password}x"
+#            #  workdir: /
+#            #check_config:
+#            #  type: http
+      - id: 2
+        name: app2
+        host: meig3
+        #control_config:
+        #  type: manual
+        #  wait_timeout: 86400
+        #status_config:
+        #  type: tcp
+        #  port: 8081
+        secret_configs:
+#          - secret_id: 2
+#            update_config:
+#              type: xml
+#            #transform_config:
+#            #  type: aes
+#            #check_config:
+#            #  type: http
+          - secret_id: 1
+            update_config:
+              type: xml
+              path: /home/meig/lib/keycloak/keycloak-13.0.1/standalone/configuration/standalone-ha.xml
+              xpath: //ds:datasource[@pool-name='KeycloakDS']//ds:security//ds:password
+              namespaces:
+                ds: urn:jboss:domain:datasources:6.0
+            #transform_config:
+            #  type: aes
+            #check_config:
+            #  type: http
